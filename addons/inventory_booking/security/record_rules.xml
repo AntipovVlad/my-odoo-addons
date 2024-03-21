@@ -1,0 +1,14 @@
+<odoo>
+    <record id="inventory_booking_is_returned" model="ir.rule">
+        <field name="name">Unable to change if returned</field>
+        <field name="model_id" ref="model_stock_rent"/>
+        <field name="perm_read" eval="0"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="groups" eval="[Command.link(ref('inventory_booking.group_media_center_inventory_managers'))]"/>
+        <field name="domain_force">
+            [('is_returned', '=', False)]
+        </field>
+    </record>
+</odoo>

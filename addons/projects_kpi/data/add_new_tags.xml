@@ -1,0 +1,5 @@
+<odoo>
+    <data noupdate="1">
+      <function model="project.tags" name="_add_new_media_center_tags"/>
+    </data>
+</odoo>

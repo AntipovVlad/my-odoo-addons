@@ -1,0 +1,22 @@
+<odoo>
+    <data noupdate="1">
+        <record id="dir_1" model="project.direction">
+            <field name="name">Misc</field>
+        </record>
+        <record id="dir_2" model="project.direction">
+            <field name="name">EdTech</field>
+        </record>
+        <record id="dir_3" model="project.direction">
+            <field name="name">VideoTech</field>
+        </record>
+        <record id="dir_4" model="project.direction">
+            <field name="name">Video Services</field>
+        </record>
+        <record id="dir_5" model="project.direction">
+            <field name="name">Online Services</field>
+        </record>
+        <record id="dir_1" model="project.direction">
+            <field name="name">Infrastructure</field>
+        </record>
+    </data>
+</odoo>

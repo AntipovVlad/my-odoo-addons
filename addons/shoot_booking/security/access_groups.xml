@@ -1,0 +1,18 @@
+<odoo>
+    <record id="module_category_media_center" model="ir.module.category">
+        <field name="name">Media Center</field>
+        <field name="description">Category for Media Center</field>
+    </record>
+
+    <record id="group_media_center_managers" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_media_center"/>
+        <field name="comment">The user will be able to create free slots for shoot booking.</field>
+    </record>
+
+    <record id="group_media_center_employees" model="res.groups">
+        <field name="name">Employee</field>
+        <field name="category_id" ref="module_category_media_center"/>
+        <field name="comment">The user will be assigned to shoot.</field>
+    </record>
+</odoo>

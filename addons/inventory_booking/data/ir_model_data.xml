@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inventory_booking.model_stock_rent" model="ir.model">
+            <field name="website_form_key">rent_inventory_item</field>
+<!--            <field name="website_form_default_field_id" ref="crm.field_crm_lead__description" />-->
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Inventory booking</field>
+        </record>
+
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>stock.rent</value>
+            <value eval="[
+                'product_type',
+                'person_name',
+                'item_id',
+                'set_id',
+                'quantity',
+            ]"/>
+        </function>
+    </data>
+</odoo>

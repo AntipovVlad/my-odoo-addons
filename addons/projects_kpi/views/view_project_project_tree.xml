@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_project_kpi_project_project_tree_inherit" model="ir.ui.view">
+        <field name="name">project.kpi.tree</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="development_direction" string="Development Direction" optional="hide"/>
+                <field name="personnel_trainee_number" string="Trainee number" optional="hide"/>
+                <field name="personnel_employee_number" string="Employee number" optional="hide"/>
+                <field name="readiness_miem_presentation" string="Middle presentation" optional="hide"/>
+                <field name="readiness_miem_experts" string="Expert control" optional="hide"/>
+                <field name="readiness_miem_final" string="Final presentation" optional="hide"/>
+                <field name="rid_perspectives" string="Perspectives" optional="hide"/>
+                <field name="rid_exists" string="Exists" optional="hide"/>
+                <field name="rid_plan" string="Plan" optional="hide"/>
+                <field name="science_pub_perspectives" string="Perspectives" optional="hide"/>
+                <field name="science_pub_exists" string="Exists" optional="hide"/>
+                <field name="science_pub_plan" string="Plan" optional="hide"/>
+                <field name="media_perspectives" string="Perspectives" optional="hide"/>
+                <field name="media_exists" string="Exists" optional="hide"/>
+                <field name="media_plan" string="Plan" optional="hide"/>
+                <field name="integration_perspectives" string="Perspectives" optional="hide"/>
+                <field name="integration_exists" string="Exists" optional="hide"/>
+                <field name="integration_plan" string="Plan" optional="hide"/>
+                <field name="marketing_web" string="Web" optional="hide"/>
+                <field name="marketing_paper" string="Paper" optional="hide"/>
+                <field name="marketing_presentation" string="Presentation" optional="hide"/>
+                <field name="marketing_demo" string="Demo" optional="hide"/>
+                <field name="product_readiness_science" string="Science" optional="hide"/>
+                <field name="product_readiness_engineering" string="Technology" optional="hide"/>
+                <field name="product_readiness_programming" string="Programming" optional="hide"/>
+                <field name="product_readiness_operation" string="Operation" optional="hide"/>
+                <field name="product_readiness_marketing" string="Marketing" optional="hide"/>
+                <field name="product_readiness_stage" string="Stage" optional="hide"/>
+                <field name="product_readiness_risks" string="Risks" optional="hide"/>
+                <field name="budget_investments" string="Investments" optional="hide"/>
+                <field name="budget_income" string="Income" optional="hide"/>
+                <field name="budget_fot" string="FOT" optional="hide"/>
+                <field name="budget_materials" string="Materials" optional="hide"/>
+                <field name="budget_services" string="Services" optional="hide"/>
+                <field name="budget_balance" string="Balance" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

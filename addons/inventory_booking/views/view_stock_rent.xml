@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_stock_rent">
+        <field name="name">Item Booking</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.rent</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Item Booking
+          </p><p>
+            Table for tracking borrowed items.
+          </p>
+        </field>
+    </record>
+
+    <record id="view_stock_rent_form_f" model="ir.ui.view">
+        <field name="name">stock.rent.form.f</field>
+        <field name="model">stock.rent</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_type" attrs="{'readonly': True}"/>
+                            <field name="item_id" attrs="{'invisible':[('product_type', '=', 'set')], 'readonly': True}"/>
+                            <field name="set_id" attrs="{'invisible':[('product_type', '=', 'single')], 'readonly': True}"/>
+                            <field name="person_name" attrs="{'readonly': True}"/>
+                            <field name="quantity" attrs="{'invisible':[('product_type', '=', 'set')], 'readonly': True}"/>
+                        </group>
+                        <group>
+                            <field name="return_date" attrs="{'readonly': True}"/>
+                            <field name="is_returned"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_stock_rent_tree_t" model="ir.ui.view">
+        <field name="name">stock.rent.tree.t</field>
+        <field name="model">stock.rent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="inventory"/>
+                <field name="person_name" attrs="{'readonly': True}"/>
+                <field name="return_date" attrs="{'readonly': True}"/>
+                <field name="is_returned" can_write="true"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_stock_rent" name="Item Booking" parent="stock.menu_stock_warehouse_mgmt" action="inventory_booking.action_stock_rent" sequence="32"/>
+</odoo>

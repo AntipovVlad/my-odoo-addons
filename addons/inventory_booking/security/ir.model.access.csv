@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory_booking_employee,stock.rent.employee,model_stock_rent,,1,1,0,0
+access_inventory_set_name_employee,inventory.set.name.employee,model_product_product_set_names,,1,0,0,0
+access_inventory_set_employee,stock.rent.employee,model_product_product_set,,1,0,0,0
+access_inventory_booking_manager,stock.rent.manager,model_stock_rent,inventory_booking.group_media_center_inventory_managers,1,1,0,1
+access_inventory_set_name_manager,inventory.set.name.manager,model_product_product_set_names,inventory_booking.group_media_center_inventory_managers,1,1,1,1
+access_inventory_set_manager,stock.rent.manager,model_product_product_set,inventory_booking.group_media_center_inventory_managers,1,1,1,1

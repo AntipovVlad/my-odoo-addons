@@ -1,0 +1,11 @@
+<odoo>
+    <record model="ir.actions.act_url" id="create_projects_kpi_report">
+        <field name="name">kpi_report</field>
+        <field name="target">new</field>
+        <field name="type">ir.actions.act_url</field>
+        <field name="url">/projects/excel_report/</field>
+        <field name="binding_type">report</field>
+    </record>
+    <menuitem name="KPI Report" id="menu_project_kpi_report" parent="project.menu_main_pm"
+            action="create_projects_kpi_report" sequence="120" groups="base.group_no_one,project.group_project_user"/>
+</odoo>

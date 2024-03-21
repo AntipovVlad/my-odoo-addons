@@ -1,0 +1,57 @@
+<odoo>
+    <record id="action_shoot_booking" model="ir.actions.act_window">
+        <field name="name">Shoot slots</field>
+        <field name="res_model">calendar.shoot_booking</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.shoot_booking.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='opportunity_partner']//field[@name='partner_id']" position="replace">
+                <field name="shoot_slot_id" attrs="{'invisible':[('is_slot_booking', '=', False)], 'readonly': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="is_slot_booking" invisible="1"/>
+                <field name="slot_type" attrs="{'invisible':[('slot_type', '=', 'none')], 'readonly': True}"/>
+                <field name="assigned_to_id" attrs="{'invisible':['|', ('is_slot_booking', '=', False), ('slot_type', '=', 'none')]}" widget="Employee"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_shoot_booking_crm_team_form_inherited" model="ir.ui.view">
+        <field name="name">crm.team.shoot_booking.form</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alias_contact']" position="after">
+                <field name="is_slot_booking"/>
+                <field name="notification_bot"/>
+            </xpath>
+            <xpath expr="//button[string('Pipeline')]" position="after">
+                <field name="is_slot_booking" invisible="1"/>
+                <button type="action" name="%(shoot_booking.action_shoot_booking)d" string="Shoot slots"
+                        class="btn btn-primary oe_kanban_action oe_kanban_action_button"
+                        attrs="{'invisible': [('is_slot_booking', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_shoot_booking_crm_team_kanban_inherited" model="ir.ui.view">
+        <field name="name">crm.team.shoot_booking.kanban</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_kanban_dashboard"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_primary_channel_button']" position="after">
+                <field name="is_slot_booking" invisible="1"/>
+                <button type="action" name="%(shoot_booking.action_shoot_booking)d" string="Shoot slots"
+                        class="btn btn-primary oe_kanban_action oe_kanban_action_button"
+                        attrs="{'invisible': [('is_slot_booking', '=', False)]}">
+                    Shoot slots
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

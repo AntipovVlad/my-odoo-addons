@@ -1,0 +1,108 @@
+<odoo>
+    <template id="project_page" name="Project Page">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="jumbotron">
+                    <h4 class="display-4">
+                        <span t-out="name"/>
+                        <span class="badge badge-secondary" t-out="number"/>
+                    </h4>
+                    <hr class="my-4"/>
+
+                    <h5 class="font-weight-bold">Участники</h5>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <div class="card mt-3 mb-3 text-white bg-primary">
+                                <div class="card-body">
+                                    <span t-out="leader"/>
+                                    <small class="font-italic">(Руководитель проекта)</small>
+                                </div>
+                            </div>
+
+                            <t t-foreach="members" t-as="mem">
+                                <t t-if="mem_index % 3 == 2">
+                                    <div class="card mt-3 mb-3">
+                                        <div class="card-body" t-out="mem"/>
+                                    </div>
+                                </t>
+                           </t>
+                        </div>
+                        <div class="col-sm-4">
+                            <t t-foreach="members" t-as="mem">
+                                <t t-if="mem_index % 3 == 0">
+                                    <div class="card mt-3 mb-3">
+                                        <div class="card-body" t-out="mem"/>
+                                    </div>
+                                </t>
+                           </t>
+                        </div>
+                        <div class="col-sm-4">
+                            <t t-foreach="members" t-as="mem">
+                                <t t-if="mem_index % 3 == 1">
+                                    <div class="card mt-3 mb-3">
+                                        <div class="card-body" t-out="mem"/>
+                                    </div>
+                                </t>
+                           </t>
+                        </div>
+                    </div>
+
+                    <h5 class="font-weight-bold mt-3">Описание</h5>
+                    <p t-out="description"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="project_card" name="Project Card">
+        <div class="card mt-3 mb-3 bg-light border-light">
+            <h5 class="card-header" t-out="project['number']"/>
+            <div class="card-body">
+                <h5 class="card-title" t-out="project['name']"/>
+                <p class="font-weight-bold" t-out="project['leader']"/>
+                <p>
+                    <small class="card-text" t-out="project['duration']"/>
+                </p>
+                <a t-att-href="project['project_href']" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </template>
+
+    <template id="projects_list" name="Projects List">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Projects</t>
+            <div id="wrap">
+                <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_projects_1"/>
+                <div class="container">
+                    <div t-if="projects">
+                        <div class="row mt-3 mb-3">
+                            <div class="col-sm-6">
+                                <t t-foreach="projects" t-as="pr">
+                                    <t t-if="pr_index % 2 == 0">
+                                        <t t-set="project" t-value="pr"/>
+                                        <t t-call="website_project.project_card"/>
+                                    </t>
+                               </t>
+                            </div>
+                            <div class="col-sm-6">
+                                <t t-foreach="projects" t-as="pr">
+                                    <t t-if="pr_index % 2 == 1">
+                                        <t t-set="project" t-value="pr"/>
+                                        <t t-call="website_project.project_card"/>
+                                    </t>
+                               </t>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-else="">
+                        <div class="text-center text-muted mt128 mb256">
+                            <t t-if="not search">
+                                <h3 class="mt8">No projects</h3>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_kpi_employee,Access to project directions,model_project_direction,,1,0,0,0

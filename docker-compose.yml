@@ -1,0 +1,35 @@
+version: "3.9"
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: crm
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: SecretPasswordDb
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  odoo:
+    build: .
+    container_name: odoo
+    depends_on:
+      - postgres
+    ports:
+      - 80:8069
+    volumes:
+      - odoo_data:/var/lib/odoo
+      - ./odoo_config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+
+volumes:
+  postgres_data:
+  odoo_data:

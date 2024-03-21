@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="view_shoot_booking_calendar" model="ir.ui.view">
+            <field name="name">calendar.shoot_booking.calendar</field>
+            <field name="model">calendar.shoot_booking</field>
+            <field name="arch" type="xml">
+                <calendar date_start="event_date" mode="month" quick_add="False" color="is_inside_slot">
+                    <field name="current_available_slots"/>
+                    <field name="max_available_slots"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="view_shoot_booking_tree" model="ir.ui.view">
+            <field name="name">calendar.shoot_booking.tree</field>
+            <field name="model">calendar.shoot_booking</field>
+            <field name="arch" type="xml">
+                <tree string="arch">
+                    <field name="event_date"/>
+                    <field name="event_date_time"/>
+                    <field name="current_available_slots"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_shoot_booking_form" model="ir.ui.view">
+            <field name="name">calendar.shoot_booking.form</field>
+            <field name="model">calendar.shoot_booking</field>
+            <field name="arch" type="xml">
+                <form string="arch">
+                    <sheet>
+                        <group>
+                            <field name="event_date"/>
+                            <field name="event_date_time"/>
+                            <field name="current_available_slots"/>
+                            <field name="crm_pipeline_id"/>
+                            <field name="is_inside_slot"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

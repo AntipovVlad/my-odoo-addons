@@ -1,0 +1,22 @@
+<odoo>
+    <record id="action_open_set_adding" model="ir.actions.act_window">
+        <field name="name">Add to Set</field>
+        <field name="res_model">product.product.set</field>
+        <field name="context">{'default_item_id': active_id}</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="view_stock_rent_form" model="ir.ui.view">
+        <field name="name">product.product.set.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button type="action" name="%(inventory_booking.action_open_set_adding)d" string="Add to Set"/>
+            </xpath>
+            <xpath expr="//field[@name='uom_po_id']" position="after">
+                <field name="sets" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

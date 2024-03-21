@@ -1,0 +1,12 @@
+<odoo>
+    <record id="module_category_media_center_inventory" model="ir.module.category">
+        <field name="name">Media Center Inventory</field>
+        <field name="description">Category for Media Center Inventory</field>
+    </record>
+
+    <record id="group_media_center_inventory_managers" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_media_center_inventory"/>
+        <field name="comment">The user will be able to manage inventory.</field>
+    </record>
+</odoo>

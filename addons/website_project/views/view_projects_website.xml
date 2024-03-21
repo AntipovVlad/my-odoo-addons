@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_website_projects_form" model="ir.ui.view">
+        <field name="name">projects.website.view.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="display_on_website" string="Website Display"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

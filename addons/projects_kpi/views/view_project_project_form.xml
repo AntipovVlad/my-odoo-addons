@@ -1,0 +1,71 @@
+<odoo>
+    <record id="view_project_kpi_project_project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.kpi.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='settings']" position="after">
+                <page name="kpi_info" string="KPI info">
+                    <group>
+                        <group name="personnel" string="Project info">
+                            <field name="development_direction" string="Development Direction"/>
+                        </group>
+                        <group name="personnel" string="Personnel number">
+                            <field name="personnel_trainee_number" string="Trainee number"/>
+                            <field name="personnel_employee_number" string="Employee number"/>
+                        </group>
+                        <group name="readiness" string="Readiness MIEM">
+                            <field name="readiness_miem_presentation" string="Middle presentation"/>
+                            <field name="readiness_miem_experts" string="Expert control"/>
+                            <field name="readiness_miem_final" string="Final presentation"/>
+                        </group>
+                        <group name="rid" string="RID">
+                            <field name="rid_perspectives" string="Perspectives"/>
+                            <field name="rid_exists" string="Exists"/>
+                            <field name="rid_plan" string="Plan"/>
+                        </group>
+                        <group name="science_pub" string="Science publishing">
+                            <field name="science_pub_perspectives" string="Perspectives"/>
+                            <field name="science_pub_exists" string="Exists"/>
+                            <field name="science_pub_plan" string="Plan"/>
+                        </group>
+                        <group name="media" string="Media publishing">
+                            <field name="media_perspectives" string="Perspectives"/>
+                            <field name="media_exists" string="Exists"/>
+                            <field name="media_plan" string="Plan"/>
+                        </group>
+                        <group name="integration" string="Integration">
+                            <field name="integration_perspectives" string="Perspectives"/>
+                            <field name="integration_exists" string="Exists"/>
+                            <field name="integration_plan" string="Plan"/>
+                        </group>
+                        <group name="marketing" string="Marketing">
+                            <field name="marketing_web" string="Web"/>
+                            <field name="marketing_paper" string="Paper"/>
+                            <field name="marketing_presentation" string="Presentation"/>
+                            <field name="marketing_demo" string="Demo"/>
+                        </group>
+                        <group name="product_readiness" string="Product readiness">
+                            <field name="product_readiness_science" string="Science"/>
+                            <field name="product_readiness_engineering" string="Engineering"/>
+                            <field name="product_readiness_technology" string="Technology"/>
+                            <field name="product_readiness_programming" string="Programming"/>
+                            <field name="product_readiness_operation" string="Operation"/>
+                            <field name="product_readiness_marketing" string="Marketing"/>
+                            <field name="product_readiness_stage" string="Stage"/>
+                            <field name="product_readiness_risks" string="Risks"/>
+                        </group>
+                        <group name="budget" string="Investments">
+                            <field name="budget_investments" string="Investments"/>
+                            <field name="budget_income" string="Income"/>
+                            <field name="budget_fot" string="FOT"/>
+                            <field name="budget_materials" string="Materials"/>
+                            <field name="budget_services" string="Services"/>
+                            <field name="budget_balance" string="Balance"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

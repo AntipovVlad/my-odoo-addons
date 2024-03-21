@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crm.model_crm_lead" model="ir.model">
+            <field name="website_form_key">create_shoot_booking</field>
+            <field name="website_form_default_field_id" ref="crm.field_crm_lead__description" />
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Create Shoot Booking Form</field>
+        </record>
+
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>crm.lead</value>
+            <value eval="[
+                'contact_name',
+                'email_from',
+                'phone',
+                'shoot_slot_id',
+                'team_id',
+            ]"/>
+        </function>
+    </data>
+</odoo>
